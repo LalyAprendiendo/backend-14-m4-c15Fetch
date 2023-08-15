@@ -22,7 +22,7 @@ Cada vez que necesitemos consumir datos de una **API**, podemos hacerlo usando l
 
 Es recomendable crear objetos de tipo URL para tener a disposición todas sus propieades. Dentro de `response` tendremos almacenada una promesa que está en estado de pendiente. Esto es así porque las peticiones a recursos que están en Internet generalmente tardan un tiempo mayor al que tarda el procesador en hacer sus tareas. Entonces, para que todo el flujo del programa no se detenga a esperar este tiempo indefinido, la función `fetch()` devuelve instantáneamente una promesa **que está en estado de pendiente a ser resuelta**, en cuanto el resultado esté disponible.
 
-<img src="https://i.ibb.co/yh5RXW5/Promise.jpg" alt="Promise" border="0">
+<p align="center"> <img src="https://i.ibb.co/yh5RXW5/Promise.jpg" alt="Promise" border="0"> </p>
 
 <h2 align="center"> Manejando asincronías con ASYNC|AWAIT </h2>
 
