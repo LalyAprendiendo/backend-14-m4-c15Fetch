@@ -1,25 +1,25 @@
-import { Character } from "./types";
+import { Character } from './types';
 
 function processObject(dataObj: any) {
-    const collection = dataObj.results as Character[];
+	const collection = dataObj.results as Character[];
 
-    const result = collection.map((character: Character) => {
-        const { name, species } = character;
+	const result = collection.map((character: Character) => {
+		const { name, species } = character;
 
-        return { name, species };
-    });
+		return { name, species };
+	});
 
-    return result;
-} 
+	return result;
+}
 
 async function getAPIData(url: URL) {
-    const response = await fetch(url.href + '/character');
+	const response = await fetch(url.href + '/character');
 
-    const jsonObj = await response.json();  
+	const jsonObj = await response.json();
 
-    const formattedResult = processObject(jsonObj);
+	const formattedResult = processObject(jsonObj);
 
-    return formattedResult;
+	return formattedResult;
 }
 
 export default getAPIData;

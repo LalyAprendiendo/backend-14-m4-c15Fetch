@@ -4,7 +4,7 @@
 
 <h2 align="center"> ¿Qué es una API? </h2>
 
-Las interfaces de programación de aplicaciones (**A**pplication **P**rogramming **I**nterface) son, como su nombre lo indican, interfaces. La palabra *interfaz* viene del inglés *interface*, compuesto por *inter* (entre) y *face* (cara), y hace referencia a "lo que está entre caras". Dentro del contexto de la programación **Frontend**, las interfaces de usuario son sitios/aplicaciones con gráficos interactivos que permiten a casi cualquier usuario interactuar con un componente de software sin necesidad de saber nada de informática. Es decir, que la función principal es la de **traducir**.
+Las interfaces de programación de aplicaciones (**A**pplication **P**rogramming **I**nterface) son, como su nombre lo indican, interfaces. La palabra _interfaz_ viene del inglés _interface_, compuesto por _inter_ (entre) y _face_ (cara), y hace referencia a "lo que está entre caras". Dentro del contexto de la programación **Frontend**, las interfaces de usuario son sitios/aplicaciones con gráficos interactivos que permiten a casi cualquier usuario interactuar con un componente de software sin necesidad de saber nada de informática. Es decir, que la función principal es la de **traducir**.
 
 En el caso de la programación **Backend**, a la interfaz gráfica de usuario la reemplaza la interfaz de programación de aplicaciones o API, que cumple exactamente la misma función, con la única diferencia de que accedemos y manipulamos sus datos a través de rutas/url que apuntan a los recursos de la base de datos.
 
@@ -14,7 +14,7 @@ Las APIs están compuestas por un conjunto de definiciones y protocolos que perm
 
 <h2 align="center"> Fetch API </h2>
 
-Cada vez que necesitemos consumir datos de una **API**, podemos hacerlo usando la **API de Fetch**. Básicamente, nos proporciona una *interfaz* para solicitar y/o manipular recursos de la WEB. Supongamos que quiero saber las opciones de recursos que tengo para consultar a la API de Rick & Morty:
+Cada vez que necesitemos consumir datos de una **API**, podemos hacerlo usando la **API de Fetch**. Básicamente, nos proporciona una _interfaz_ para solicitar y/o manipular recursos de la WEB. Supongamos que quiero saber las opciones de recursos que tengo para consultar a la API de Rick & Morty:
 
 `const API_URL = new URL('https://rickandmortyapi.com/api');`
 
@@ -31,24 +31,33 @@ Una de las herramientas que tenemos para poder resolver el estado `Promise{ Pend
 `const API_URL = new URL('https://rickandmortyapi.com/api');`
 
 `async function fetchData(url: URL) {`
+
 `   const response = await fetch(url);`
+
 `   const result = await response.json();`
+
 `   console.log(result);`
+
 `};`
 
 `fetchData(API_URL);`
 
-La función `fetchData(url: URL)` está declarada con la palabra reservada *async*. Esto permite que, dentro de su contexto de bloque, podamos detener el flujo de ejecución del programa y esperar `await` a que la tarea termine. De esta forma, en el ejemplo primero resolvemos la promesa arrojada por `fetch()`, y luego usamos el método `json()` del objecto Response, para convertir a un objecto de Javascript la respuesta. Una vez terminadas esas tareas, imprimimos el resultado en la terminal.
+La función `fetchData(url: URL)` está declarada con la palabra reservada _async_. Esto permite que, dentro de su contexto de bloque, podamos detener el flujo de ejecución del programa y esperar `await` a que la tarea termine. De esta forma, en el ejemplo primero resolvemos la promesa arrojada por `fetch()`, y luego usamos el método `json()` del objecto Response, para convertir a un objecto de Javascript la respuesta. Una vez terminadas esas tareas, imprimimos el resultado en la terminal.
 
-<h2 align="center"> DESAFÍO </h2>
+<h2 align="center"> DESAFÍOS </h2>
 
-Te propongo que investigues como consumir los datos de la API de Open Movies DB. El objetivo es desarrollar una app que permita buscar películas por su título. Separá la lógica de la APP en dos módulos:
+1. Te propongo que investigues como consumir los datos de la API de Open Movies DB. El objetivo es desarrollar una app que permita buscar películas por su título. Separá la lógica de la APP en dos módulos:
 
-- index.ts      | Es el encargado de recibir las solicitudes del usuario, de comunicarlas al modelo, y de imprimirlas en la terminal con algún formato que te guste.
-- model.ts      | Es el encargado de recibir las solicitudes de INDEX.ts y de consultar a la API.
-- history.json  | Es una pequeña base de datos local en la que figuran todas las búsquedas realizadas.
+- index.ts | Es el encargado de recibir las solicitudes del usuario, de comunicarlas al modelo, y de imprimirlas en la terminal con algún formato que te guste.
+- model.ts | Es el encargado de recibir las solicitudes de INDEX.ts y de consultar a la API.
+- history.json | Es una pequeña base de datos local en la que figuran todas las búsquedas realizadas.
 
-Para realizar las solicitudes, pueden usar **process.argv**, la dependencia **readline**, o directamente consultar desde la función main() de index.ts. 
+Para realizar las solicitudes, pueden usar **process.argv**, la dependencia **readline**, o directamente consultar desde la función main() de index.ts.
+
+2. Para este segundo ejercicio, te propongo que investigues la API de WeatherAPI (ver link más abajo) y armes una app muy similar a la anterior, con las siguientes características:
+
+- La API sirve para obtener datos climáticos relativos a cada ciudad del planeta. El usuario tiene que poder solicitar por los datos relativos a una ciudad. Es decir, que el parámetro de búsqueda del programa es la ciudad: 'London', 'Buenos Aires', etc.
+- El objetivo es imprimir en la terminal la temperatura máxima y mínima de los últimos 3 días, de la ciudad ingresada como parámetro.
 
 <h2 align="center"> LINKS </h2>
 
@@ -58,4 +67,3 @@ Para realizar las solicitudes, pueden usar **process.argv**, la dependencia **re
 - [API de Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [API de OMDB](https://www.omdbapi.com/)
 - [API del clima](https://www.weatherapi.com/docs/)
-
