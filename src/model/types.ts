@@ -1,8 +1,9 @@
-interface Character {
-	id: number;
-	name: string;
-	status: string;
-	species: string;
+interface Movie {
+	Title: string,
+	Year: string,
+	imdbID: string,
+	Type: string,
+	Poster: string
 };
 
-export { Character };
+export { Movie };

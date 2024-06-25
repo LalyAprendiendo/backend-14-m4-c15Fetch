@@ -1,25 +1,27 @@
-import { Character } from './types';
+import { Movie } from './types';
 
 function processObject(dataObj: any) {
-	const collection = dataObj.results as Character[];
+	console.log("processObject")
+	// const collection = dataObj.results as Movie[];
 
-	const result = collection.map((character: Character) => {
-		const { name, species } = character;
+	// const result = collection.map((movie: Movie) => {
+	// 	const { Title, Year } = movie;
 
-		return { name, species };
-	});
+	// 	return { Title, Year };
+	// });
 
-	return result;
+	// return result;
 }
 
-async function getAPIData(url: URL) {
-	const response = await fetch(url.href + '/character');
+async function getAPIData(url: URL, searchParam: string ) {
+	
+	 const response = await fetch(url.href + 's=' + searchParam);
 
 	const jsonObj = await response.json();
 
 	const formattedResult = processObject(jsonObj);
 
-	return formattedResult;
+	return formattedResult
 }
 
 export default getAPIData;
