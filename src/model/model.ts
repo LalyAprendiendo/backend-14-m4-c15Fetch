@@ -1,8 +1,9 @@
 import { Movie } from './types';
 
 function processObject(dataObj: any) {
-	console.log("processObject")
-	// const collection = dataObj.results as Movie[];
+	
+	const collection = dataObj.results as Movie[];
+	console.log("dataObj.results as Movie[]")
 
 	// const result = collection.map((movie: Movie) => {
 	// 	const { Title, Year } = movie;
